@@ -4,6 +4,50 @@ import { Plus, ArrowRight, FileStackIcon, FileQuestion, SquarePen, TrendingUp, B
 
 function Dashboard() {
 
+  //subject links
+  const subjectImages = {
+    Biology : "https://cinemaroo.com/wp-content/uploads/2025/05/e04d856a-a536-4035-bf2d-bd47e68dc4a4.webp",
+    Physics : "https://s3.envato.com/files/215255924/Preview_Image_F_00000000.jpg",
+    Chemistry : "https://images7.alphacoders.com/104/1048953.jpg",
+    History : "https://i.pinimg.com/736x/14/31/0b/14310bdba58b06a1abad9ed0ee68d9ae.jpg"
+  }
+
+  // studyset
+  const studyset = [
+    {
+      id : 1,
+      subject : "Biology",
+      title : 'Biology : Basics of Biology',
+      cards: 42,
+      date : "2 days ago",
+      image : ""
+    },
+    {
+      id : 2,
+      subject : "Physics",
+      title : 'Physics: Mechanics',
+      cards: 25,
+      date : "1 week ago",
+      image : ""
+    },
+    {
+      id : 3,
+      subject : "Chemistry",
+      title : 'Chemistry: Periodic Table',
+      cards: 50,
+      date : "5 days ago",
+      image : ""
+    },
+    {
+      id : 4,
+      subject : "History",
+      title : 'History: India: Events after 1960',
+      cards: 10,
+      date : "5 days ago",
+      image : ""
+    }
+  ]
+
   // stat section 
   const stats= [
     { label: "Study Sets", value: "12", icon: BookOpen, color: "bg-blue-100", shadow: "shadow-blue-200"},
@@ -61,13 +105,13 @@ function Dashboard() {
     </div>
 
     {/* stats section (for motivating the students) */}
-    <div className='mt-15 flex flex-wrap gap-2'>
+    <div className='mt-15 grid grid-cols-4 gap-3'>
       {stats.map((stat) => {
         const Icon = stat.icon
         return (
             <div key={stat.label} className={`${stat.color} justify-center items-center p-5 rounded-xl cursor-pointer hover:shadow-lg hover: ${stat.shadow} transition-all flex gap-2`}>
               <Icon size={28} className='text-gray-900'/>
-              <p className='text-black text-xl font-pop font-bold'>{stat.label}: <span className='text-2xl text-black'>{stat.value}</span></p>
+              <p className='text-black text-lg font-pop font-bold'>{stat.label}: <span className='text-xl text-black'>{stat.value}</span></p>
             </div>
         )
       })}
@@ -78,75 +122,26 @@ function Dashboard() {
       <h2 className='mt-20 mb-10 text-2xl font-semibold'>Your Recent Study Sets</h2>
 
       {/* study set cards  (display last four study set)*/}
-      <div className='flex gap-6 flex-wrap'>
+      <div className='grid gap-6 grid-cols-4'>
 
-        <div className='w-[256px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 font-pop hover:scale-105'>
-          <img src="https://cinemaroo.com/wp-content/uploads/2025/05/e04d856a-a536-4035-bf2d-bd47e68dc4a4.webp" alt="" className='w-full h-36 object-cover transition-transform duration-300 hover:scale-110'/>
+        {studyset.map((set) => (
+          <div className='w-[256px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 font-pop hover:scale-105'>
+            <img src={subjectImages[set.subject]} alt={set.subject} className='w-full h-36 object-cover transition-transform duration-300 hover:scale-110'/>
 
-          <div className='p-4'>
-            <h3 className='text-[15px] font-bold'>Biology : Basics of Biology</h3>
-            
-            <div className='flex justify-between items-center mt-3 text-[12px] text-gray-600'>
-              <span className='flex items-center gap-1'><FileStackIcon size={16}/> 42 cards</span> 
-              <span>2 days ago</span>
+            <div className='p-4'>
+              <h3 className='text-[15px] font-bold'>{set.title}</h3>
+              
+              <div className='flex justify-between items-center mt-3 text-[12px] text-gray-600'>
+                <span className='flex items-center gap-1'><FileStackIcon size={16}/> {set.cards} cards</span> 
+                <span>{set.date}</span>
+              </div>
+
+              {/* study button */}
+              <button className='w-full mt-5 bg-[#F5EFF7] text-black rounded-xl py-2 font-semibold hover:bg-[#6750A4] hover:text-white transition-all duration-300 hover:scale-[1.02]'>Study</button>
             </div>
 
-            {/* study button */}
-            <button className='w-full mt-5 bg-[#F5EFF7] text-black rounded-xl py-2 font-semibold hover:bg-[#6750A4] hover:text-white transition-all duration-300 hover:scale-[1.02]'>Study</button>
           </div>
-
-        </div>
-
-        <div className='w-[256px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 font-pop hover:scale-105 '>
-          <img src="https://cinemaroo.com/wp-content/uploads/2025/05/e04d856a-a536-4035-bf2d-bd47e68dc4a4.webp" alt="" className='w-full h-36 object-cover transition-transform duration-300 hover:scale-110'/>
-
-          <div className='p-4'>
-            <h3 className='text-[15px] font-bold'>Biology : Basics of Biology</h3>
-            
-            <div className='flex justify-between items-center mt-3 text-[12px] text-gray-600'>
-              <span className='flex items-center gap-1'><FileStackIcon size={16}/> 42 cards</span> 
-              <span>2 days ago</span>
-            </div>
-
-            {/* study button */}
-            <button className='w-full mt-5 bg-[#F5EFF7] text-black rounded-xl py-2 font-semibold hover:bg-[#6750A4] hover:text-white transition-all duration-300 hover:scale-[1.02]'>Study</button>
-          </div>
-
-        </div>
-
-        <div className='w-[256px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 font-pop hover:scale-105 '>
-        <img src="https://cinemaroo.com/wp-content/uploads/2025/05/e04d856a-a536-4035-bf2d-bd47e68dc4a4.webp" alt="" className='w-full h-36 object-cover transition-transform duration-300 hover:scale-110'/>
-
-        <div className='p-4'>
-          <h3 className='text-[15px] font-bold'>Biology : Basics of Biology</h3>
-          
-          <div className='flex justify-between items-center mt-3 text-[12px] text-gray-600'>
-            <span className='flex items-center gap-1'><FileStackIcon size={16}/> 42 cards</span> 
-            <span>2 days ago</span>
-          </div>
-
-          {/* study button */}
-          <button className='w-full mt-5 bg-[#F5EFF7] text-black rounded-xl py-2 font-semibold hover:bg-[#6750A4] hover:text-white transition-all duration-300 hover:scale-[1.02]'>Study</button>
-        </div>
-
-        </div>
-
-        <div className='w-[256px] bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 font-pop hover:scale-105 '>
-        <img src="https://cinemaroo.com/wp-content/uploads/2025/05/e04d856a-a536-4035-bf2d-bd47e68dc4a4.webp" alt="" className='w-full h-36 object-cover transition-transform duration-300 hover:scale-110'/>
-
-        <div className='p-4'>
-          <h3 className='text-[15px] font-bold'>Biology : Basics of Biology</h3>
-          
-          <div className='flex justify-between items-center mt-3 text-[12px] text-gray-600'>
-            <span className='flex items-center gap-1'><FileStackIcon size={16}/> 42 cards</span> 
-            <span>2 days ago</span>
-          </div>
-
-          {/* study button */}
-          <button className='w-full mt-5 bg-[#F5EFF7] text-black rounded-xl py-2 font-semibold hover:bg-[#6750A4] hover:text-white transition-all duration-300 hover:scale-[1.02]'>Study</button>
-        </div>
-
-        </div>
+        ))}
 
       </div>
 
