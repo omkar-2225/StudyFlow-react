@@ -10,7 +10,7 @@ import Dashboard from './StudyFlowComp/Dashboard/Dashboard.jsx'
 import Library from './StudyFlowComp/Library/Library.jsx'
 import Settings from './StudyFlowComp/Settings/Settings.jsx'
 import Help from './StudyFlowComp/Help/Help.jsx'
-
+import Flashcard from './StudyFlowComp/Flashcard/Flashcard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -41,6 +41,10 @@ createRoot(document.getElementById('root')).render(
             <Help />
           </Layout>}/>
 
+          {/* flashcard viewer */}
+          <Route path='/flashcards' element={<Layout>
+            <Flashcard />
+          </Layout>} />
         </Routes>
     </BrowserRouter>
   </StrictMode>
