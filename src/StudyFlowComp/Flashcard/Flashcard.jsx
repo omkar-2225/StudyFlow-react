@@ -3,6 +3,214 @@ import React, { useState } from 'react'
 
 function Flashcard() {
 
+    // random quote
+    const quotes = [
+  {
+    text: "Success is the sum of small efforts, repeated day in and day out.",
+    author: "Robert Collier"
+  },
+  {
+    text: "Learning never exhausts the mind.",
+    author: "Leonardo da Vinci"
+  },
+  {
+    text: "The beautiful thing about learning is that no one can take it away from you.",
+    author: "B.B. King"
+  },
+  {
+    text: "Don't watch the clock; do what it does. Keep going.",
+    author: "Sam Levenson"
+  },
+  {
+    text: "The expert in anything was once a beginner.",
+    author: "Helen Hayes"
+  },
+  {
+    text: "Dream big. Start small. Act now.",
+    author: "Robin Sharma"
+  },
+  {
+    text: "Small progress is still progress.",
+    author: "Unknown"
+  },
+  {
+    text: "Discipline is choosing between what you want now and what you want most.",
+    author: "Abraham Lincoln"
+  },
+  {
+    text: "Knowledge is power.",
+    author: "Francis Bacon"
+  },
+  {
+    text: "Push yourself because no one else is going to do it for you.",
+    author: "Unknown"
+  },
+  {
+    text: "Every accomplishment starts with the decision to try.",
+    author: "John F. Kennedy"
+  },
+  {
+    text: "Study while others are sleeping.",
+    author: "Unknown"
+  },
+  {
+    text: "Consistency beats intensity.",
+    author: "Unknown"
+  },
+  {
+    text: "Your future is created by what you do today, not tomorrow.",
+    author: "Robert Kiyosaki"
+  },
+  {
+    text: "The secret of getting ahead is getting started.",
+    author: "Mark Twain"
+  },
+  {
+    text: "Focus on progress, not perfection.",
+    author: "Unknown"
+  },
+  {
+    text: "Knowledge compounds like interest.",
+    author: "Warren Buffett"
+  },
+  {
+    text: "You don't have to be great to start, but you have to start to be great.",
+    author: "Zig Ziglar"
+  },
+  {
+    text: "Success comes to those who prepare.",
+    author: "Unknown"
+  },
+  {
+    text: "Stay patient and trust your journey.",
+    author: "Unknown"
+  },
+  {
+    text: "Education is the passport to the future.",
+    author: "Malcolm X"
+  },
+  {
+    text: "The harder you work, the luckier you get.",
+    author: "Gary Player"
+  },
+  {
+    text: "One page at a time. One chapter at a time.",
+    author: "Unknown"
+  },
+  {
+    text: "Great things never come from comfort zones.",
+    author: "Unknown"
+  },
+  {
+    text: "Believe you can and you're halfway there.",
+    author: "Theodore Roosevelt"
+  },
+  {
+    text: "Success is earned, not given.",
+    author: "Unknown"
+  },
+  {
+    text: "A little progress each day adds up to big results.",
+    author: "Unknown"
+  },
+  {
+    text: "The best investment you can make is in yourself.",
+    author: "Warren Buffett"
+  },
+  {
+    text: "The difference between ordinary and extraordinary is that little extra.",
+    author: "Jimmy Johnson"
+  },
+  {
+    text: "Doubt kills more dreams than failure ever will.",
+    author: "Suzy Kassem"
+  },
+  {
+    text: "Your only limit is your mind.",
+    author: "Unknown"
+  },
+  {
+    text: "Keep learning because life never stops teaching.",
+    author: "Unknown"
+  },
+  {
+    text: "Success is built one study session at a time.",
+    author: "Unknown"
+  },
+  {
+    text: "Mistakes are proof that you are trying.",
+    author: "Unknown"
+  },
+  {
+    text: "Every day is another chance to improve.",
+    author: "Unknown"
+  },
+  {
+    text: "Hard work beats talent when talent doesn't work hard.",
+    author: "Tim Notke"
+  },
+  {
+    text: "Be stronger than your excuses.",
+    author: "Unknown"
+  },
+  {
+    text: "The future belongs to those who prepare for it today.",
+    author: "Malcolm X"
+  },
+  {
+    text: "You are capable of amazing things.",
+    author: "Unknown"
+  },
+  {
+    text: "Turn your dreams into plans.",
+    author: "Unknown"
+  },
+  {
+    text: "Success is the product of daily habits.",
+    author: "James Clear"
+  },
+  {
+    text: "One hour of focused study today saves many hours tomorrow.",
+    author: "Unknown"
+  },
+  {
+    text: "Be curious, not afraid.",
+    author: "Unknown"
+  },
+  {
+    text: "Keep showing up for yourself.",
+    author: "Unknown"
+  },
+  {
+    text: "The pain of discipline is less than the pain of regret.",
+    author: "Unknown"
+  },
+  {
+    text: "Your goals don't care how you feel.",
+    author: "Unknown"
+  },
+  {
+    text: "Success begins with self-belief.",
+    author: "Unknown"
+  },
+  {
+    text: "Learning is a treasure that follows its owner everywhere.",
+    author: "Chinese Proverb"
+  },
+  {
+    text: "Today's effort is tomorrow's achievement.",
+    author: "Unknown"
+  },
+  {
+    text: "Never stop learning because life never stops teaching.",
+    author: "Unknown"
+  }
+    ];
+
+    const [randomIndex] = useState(Math.floor(Math.random() * quotes.length));
+
+    const randomQuote = quotes[randomIndex];
+
     // card flip
     const [isFlipped, setIsflipped] = useState(false);
 
@@ -94,6 +302,12 @@ function Flashcard() {
 
     return (
     <div className='flex flex-col justify-center items-center -mt-10 font-pop'> 
+
+        {/* random quotes */}
+        <div className='text-center  mb-8'>
+            <p className='text-[20px] italic text-gray-600 mb-1 font-medium font-mono'>"{randomQuote.text}"</p>
+            <p className='font-medium font-mono text-lg text-gray-500'>— {randomQuote.author}</p>
+        </div>
 
         {/* title */}
         <h1 className='text-4xl font-bold mb-2 text-[#4F378A]'>{studySet.subject}</h1>
