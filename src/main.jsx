@@ -11,6 +11,7 @@ import Library from './StudyFlowComp/Library/Library.jsx'
 import Settings from './StudyFlowComp/Settings/Settings.jsx'
 import Help from './StudyFlowComp/Help/Help.jsx'
 import Flashcard from './StudyFlowComp/Flashcard/Flashcard.jsx'
+import Quiz from './StudyFlowComp/Quiz/Quiz.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -44,6 +45,11 @@ createRoot(document.getElementById('root')).render(
           {/* flashcard viewer */}
           <Route path='/flashcards' element={<Layout>
             <Flashcard />
+          </Layout>} />
+
+          {/* Quiz viewer */}
+          <Route path='/quiz' element={<Layout>
+          <Quiz />
           </Layout>} />
         </Routes>
     </BrowserRouter>
